@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3D wireframe renderer</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-beta.1/jquery.mobile-1.4.0-beta.1.min.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.0-beta.1/jquery.mobile-1.4.0-beta.1.min.js"></script>
+        
+        <script src="meshdata.js"></script>
+        <script src="3dWireframeRenderer.js"></script>
+        <style>
+            
+            [data-role="content"] .canvascontainer {
+                margin:0px;
+                padding:0px;
+                text-align:center;
+            }
+            
+            canvas {
+                outline:0;
+                border:1px solid #000;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div data-role="page" id="wireframe">
+            <div data-role="content">
+                <div class="canvascontainer">
+                    <canvas id="canvas"></canvas>
+                </div>
+                
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <label for="campos-x">Cam pos X:</label>
+                        <input type="range" name="campos-x" id="campos-x" min="-200" max="200" value="0">
+                        <label for="campos-y">Cam pos Y:</label>
+                        <input type="range" name="campos-y" id="campos-y" min="-200" max="200" value="0">                        
+                        <label for="campos-z">Cam pos Z:</label>
+                        <input type="range" name="campos-z" id="campos-z" min="1" max="500" value="160">
+                    </div>
+                    <div class="ui-block-b">
+                        <label for="near">Near:</label>
+                        <input type="range" name="near" id="near" min="-500" max="-1" value="-100">
+                        <label for="far">Far:</label>
+                        <input type="range" name="far" id="far" min="-2000" max="-10" value="-500">
+                        <br />
+                        <div style="text-align:center;">
+                            <span id="info" style="color:red;"></span>
+                        </div>
+                    </div>
+                </div>
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend>Meshes:</legend>
+                    <input type="radio" name="mesh" id="mesha" value="cube" checked="checked">
+                    <label for="mesha">Cube</label>
+                    
+                    <input type="radio" name="mesh" id="meshb" value="icosahedron">
+                    <label for="meshb">Icosahedron</label>
+
+                    <input type="radio" name="mesh" id="meshc" value="sphere">
+                    <label for="meshc">Sphere</label>
+                    
+                    <input type="radio" name="mesh" id="meshd" value="torusknot">
+                    <label for="meshd">Torus knot</label>
+                </fieldset>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
